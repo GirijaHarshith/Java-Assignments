@@ -26,7 +26,45 @@ public class Q10 {
     }
 
     public void pascalTriangle(){
-        Scanner scanner = new Scanner(System.in);
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter number of rows");
+        int rows=sc.nextInt();
+        int[] curr;
+        int[] prev=new int[1];
+        for(int s=0;s<rows-1;s++){
+            System.out.print(" ");
+        }
+        System.out.println(prev[0]=1);
+        for(int i=1;i<rows;i++){
+            curr=new int[i+1];
+            curr[0]=1;
+            for(int j=1;j<=i;j++){
+                if(i==j)
+                    curr[j]=1;
+                else
+                    curr[j]=prev[j-1]+prev[j];
+            }
+
+            for(int s=0;s<rows-1-i;s++){
+                System.out.print(" ");
+            }
+
+            prev=new int[i+1];
+            for(int k=0;k<prev.length;k++){
+                prev[k]=curr[k];
+                System.out.print(prev[k]+" ");
+            }
+            System.out.println();
+        }
+    }
+}
+
+
+
+
+   /*  One more approach using Arraylist
+
+    Scanner scanner = new Scanner(System.in);
         System.out.println("Enter number of rows: ");
         int rows = scanner.nextInt();
 
@@ -40,7 +78,7 @@ public class Q10 {
         for(int i=1; i<rows; i++){
             List<Integer> curr = new ArrayList<>();
             curr.add(0, 1);
-            curr.add(curr.size()-1, 1);
+            curr.add(1, 1);
             for(int j=1; j<i; j++) {
                 curr.add(j, prev.get(j - 1) + prev.get(j));
             }
@@ -57,3 +95,4 @@ public class Q10 {
         }
     }
 }
+    */
