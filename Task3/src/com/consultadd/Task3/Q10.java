@@ -39,7 +39,7 @@ public class Q10 {
             curr=new int[i+1];
             curr[0]=1;
             for(int j=1;j<=i;j++){
-                if(i==j)
+                if(i==j)               //if(i==j) can be skipped if we initialize curr[curr.length-1]=1 before for loop
                     curr[j]=1;
                 else
                     curr[j]=prev[j-1]+prev[j];
@@ -49,6 +49,7 @@ public class Q10 {
                 System.out.print(" ");
             }
 
+            //copy curr values to prev so that it can be used for next loop when we initialize new curr[]
             prev=new int[i+1];
             for(int k=0;k<prev.length;k++){
                 prev[k]=curr[k];
@@ -60,11 +61,9 @@ public class Q10 {
 }
 
 
+/*  One more approach using Arraylist
 
-
-   /*  One more approach using Arraylist
-
-    Scanner scanner = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
         System.out.println("Enter number of rows: ");
         int rows = scanner.nextInt();
 
@@ -95,4 +94,5 @@ public class Q10 {
         }
     }
 }
-    */
+
+*/
